@@ -1,0 +1,32 @@
+.game {
+	border: black solid;
+	height: 300px;
+	margin-bottom: 20px;
+
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.game > p {
+	margin: 0 5px 0 5px;
+}
+
+.game:hover {
+	background-color: lightgray;
+}
+
+.game > img {
+	border: black solid;
+	float: right;
+	width: 250px;
+	height: 250px;
+	margin-right: 5px;
+}
