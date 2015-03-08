@@ -10,6 +10,13 @@ header {
 	height: 50px;
 }
 
+canvas {
+	border: solid black;
+	width: 400px;
+	height: 400px;
+	display:inline;
+}
+
 footer {
 	text-align: center;
 	color: gray;
@@ -20,6 +27,11 @@ footer {
 
 p {
 	margin-bottom: 1em;
+}
+
+#game {
+	margin: 3% auto 5% auto;
+	text-align: center;
 }
 
 #about {
