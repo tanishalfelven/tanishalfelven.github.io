@@ -1,0 +1,57 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Tahoma";
+}
+
+header {
+	background-color: black;
+	width: 100%;
+	height: 50px;
+}
+
+footer {
+	text-align: center;
+	color: gray;
+	margin-bottom: .25%;
+	font-size: 11px;
+	bottom: 0;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+#about {
+	float: right;
+}
+
+#text {
+	text-indent: 3%;
+	line-height: 1.5;
+	margin: 3% auto 5% auto;
+	width: 600px;
+}
+
+.entry {
+	position: relative;
+	float: left;
+
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	padding: 0% 2% 0% 2%;
+
+	color: gray;  
+
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+
+.entry:hover {
+	background-color: white;
+	color: black;
+}
