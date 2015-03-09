@@ -215,10 +215,16 @@ var nextLetter = function(s){
     });
 };
 
-var bindInput = function(){
+var bindInput = function(){	    
+	window.onkeydown = function(e) { 
+		return !(e.keyCode == 32 || e.keycode == left_key || e.keycode == right_key);
+	};
 	document.body.addEventListener("keydown", function (e) {
 	    keys[e.keyCode] = true;
-	});
+	    if(e.keycode == space || e.keycode == left_key || e.keycode == right_key)
+	    	e.preventDefault();
+
+	}, false);
 	document.body.addEventListener("keyup", function (e) {
 	    keys[e.keyCode] = false;
 	});
