@@ -255,11 +255,11 @@ var askUserName = function(){
 			NAME = text;
 			clearInterval(loop);
 			postScore(highscore, NAME.join(""));
-			start();
+			startGame();
 		}
 		if(keys[escape]){
 			clearInterval(loop);
-			start();
+			startGame();
 		}
 
 		if(isDrawn){
@@ -296,8 +296,25 @@ function gameloop(){
 	update();
 };
 
-var start = function(){
+var startGame = function(){
 	loop = setInterval(gameloop, 1000 / 33);
+}
+
+function start(){
+	clearCanvas();
+	var start_text = "Press SPACEBAR to begin.";
+	var start_text_width = 145.1484375;
+
+	ctx.font = "22px Consolas";
+	ctx.fillStyle = "white";
+
+	ctx.fillText(start_text, (canvas.width/2) - (start_text_width), 200);
+
+	loop = setTimeout(start, 50);
+	if(keys[space]){
+		clearTimeout(loop);
+		startGame();
+	}
 }
 
 var init = function(){
