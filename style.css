@@ -11,7 +11,7 @@ header {
 }
 
 canvas {
-	border: solid black;
+	margin-bottom:0;
 	width: 400px;
 	height: 400px;
 	display:inline;
@@ -30,7 +30,7 @@ p {
 }
 
 #game {
-	margin: 3% auto 5% auto;
+	margin: 3% auto 2% auto;
 	text-align: center;
 }
 
