@@ -209,8 +209,17 @@ var nextLetter = function(s){
         var c= a.charCodeAt(0);
         switch(c){
             case 90: return 'A';
-            case 122: return 'a';
             default: return String.fromCharCode(++c);
+        }
+    });
+};
+
+var lastLetter = function(s){
+    return s.replace(/([a-zA-Z])[^a-zA-Z]*$/, function(a){
+        var c= a.charCodeAt(0);
+        switch(c){
+            case 65: return 'Z';
+            default: return String.fromCharCode(--c);
         }
     });
 };
@@ -320,6 +329,8 @@ var askUserName = function(){
 			selected = (selected <= 0) ? selected : selected-1;
 		if(keys[up_key])
 			text[selected] = nextLetter(text[selected]);
+		if(keys[down_key])
+			text[selected] = lastLetter(text[selected]);
 		if(keys[enter]){
 			NAME = text;
 			clearInterval(loop);
@@ -347,11 +358,15 @@ var drawInitialsScreen = function(text){
 	var skip = "Press 'ESC' to skip saving...";
 	var skip_width = ctx.measureText(skip).width;
 
+	var score = "SCORE: "+highscore;
+	var score_width = ctx.measureText(score).width;
+
 	ctx.font = "22px Consolas";
 	ctx.fillStyle = "white";
 
 	ctx.fillText(question, (canvas.width/2) - (question_width/2), 50);
 	ctx.fillText(skip, (canvas.width/2) - (skip_width/2), 100);
+	ctx.fillText(score, (canvas.width/2) - (score_width/2), 130);
 	width = ctx.measureText(text[0] + " " + text[1] +" " +text[2]).width;
 	ctx.fillText(text[0] + " " + text[1] +" " +text[2], canvas.width/2 - width/2, 200);
 };
