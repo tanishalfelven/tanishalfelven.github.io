@@ -131,7 +131,7 @@ Player.prototype.reset = function(){
 		//prompt("Submite new High-Score?");
 	}
 
-	color = getRandomColor();
+	shiftColor();
 	score = 0;
 	this.x = this.spawnX;
 	this.y = this.spawnY;
@@ -164,6 +164,44 @@ var getRandomColor = function() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+};
+function hexToR(h) {return parseInt((cutHex(h)).substring(0,2),16)}
+function hexToG(h) {return parseInt((cutHex(h)).substring(2,4),16)}
+function hexToB(h) {return parseInt((cutHex(h)).substring(4,6),16)}
+function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
+function rgbToHex(R,G,B) {return "#" + toHex(R)+toHex(G)+toHex(B)}
+function toHex(n) {
+ n = parseInt(n,10);
+ if (isNaN(n)) return "00";
+ n = Math.max(0,Math.min(n,255));
+ return "0123456789ABCDEF".charAt((n-n%16)/16)
+      + "0123456789ABCDEF".charAt(n%16);
+}
+function shiftColor(){
+	if(!isShifting){
+		isShifting = true;
+		nextColor = getRandomColor();
+	}
+	if(color == nextColor){
+		isShifting = false;
+		nextColor = undefined;
+		return;
+	}
+	var cR = hexToR(color);
+	var cG = hexToG(color);
+	var cB = hexToB(color);
+
+	var nR = hexToR(nextColor);
+	var nG = hexToG(nextColor);
+	var nB = hexToB(nextColor);
+
+	cR += (cR - nR > 0) ? -1 : (cR - nR == 0)? 0 : 1;
+	cG += (cG - nG > 0) ? -1 : (cG - nG == 0)? 0 : 1;;
+	cB += (cB - nB > 0) ? -1 : (cB - nB == 0)? 0 : 1;;
+
+	color = rgbToHex(cR, cG, cB);
+
+	setTimeout(shiftColor, 0);
 };
 
 var nextLetter = function(s){
@@ -363,6 +401,8 @@ var highscore = 0;
 var loop;
 var NAME = [];
 var color = "pink";
+var isShifting = false;
+var nextColor = undefined;
 
 init();
 })();
