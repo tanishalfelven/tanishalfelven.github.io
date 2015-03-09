@@ -215,14 +215,14 @@ var nextLetter = function(s){
     });
 };
 
-var bindInput = function(){	    
-	window.onkeydown = function(e) { 
-		return !(e.keyCode == 32 || e.keycode == left_key || e.keycode == right_key);
-	};
+var bindInput = function(){	   
 	document.body.addEventListener("keydown", function (e) {
 	    keys[e.keyCode] = true;
-	    if(e.keycode == space || e.keycode == left_key || e.keycode == right_key)
-	    	e.preventDefault();
+        switch(e.keyCode){
+            case 37: case 39: case 38:  case 40: // Arrow keys
+            case 32: e.preventDefault(); break; // Space
+            default: break; // do not block other keys
+        }
 
 	}, false);
 	document.body.addEventListener("keyup", function (e) {
