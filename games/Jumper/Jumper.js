@@ -68,6 +68,11 @@ Player.prototype.update = function(){
 	this.x += this.velX;
 	this.x = Math.max(0, Math.min(this.x, canvas.width-this.size));
 
+	if(this.x == 0)
+		this.x = canvas.width - this.size;
+	else if(this.x + this.size == canvas.width)
+		this.x = 0;
+
 	if(!this.isOnPlatform())
 		this.applyGravity();
 	else{
@@ -125,6 +130,8 @@ Player.prototype.reset = function(){
 		askUserName();
 		//prompt("Submite new High-Score?");
 	}
+
+	color = getRandomColor();
 	score = 0;
 	this.x = this.spawnX;
 	this.y = this.spawnY;
@@ -134,11 +141,29 @@ Player.prototype.reset = function(){
 Player.prototype.draw = function(){
 	ctx.fillStyle = "#00654f";
 	ctx.fillRect(this.x, this.y, this.size, this.size);
+
+	ctx.lineStyle = "black";
+	ctx.strokeRect(this.x, this.y, this.size, this.size);
 };
 
 var clearCanvas = function(){
 	ctx.fillStyle = "black";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	var grd = ctx.createLinearGradient(0,0,0,1000);
+	grd.addColorStop(0,"black");
+	grd.addColorStop(1, color);
+
+	ctx.fillStyle=grd;
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+};
+var getRandomColor = function() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 };
 
 var nextLetter = function(s){
@@ -263,9 +288,6 @@ var askUserName = function(){
 		}
 
 		if(isDrawn){
-			ctx.fillStyle = "black";
-			ctx.fillText("_", canvas.width/2 - width/2 + width/2.5*selected, 200);
-		}else{
 			ctx.fillStyle = "white";
 			ctx.fillText("_", canvas.width/2 - width/2 + width/2.5*selected, 200);
 		}
@@ -340,6 +362,7 @@ var score = 0;
 var highscore = 0;
 var loop;
 var NAME = [];
+var color = "pink";
 
 init();
 })();
