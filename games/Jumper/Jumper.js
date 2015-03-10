@@ -11,6 +11,9 @@ function Platform(x, y){
 };
 Platform.prototype.height = 5;
 Platform.prototype.speed = 2;
+Platform.prototype.doColor = true;
+Platform.prototype.color = "red";
+Platform.prototype.doLine = false;
 Platform.prototype.update = function(){
 	this.y += this.speed;
 	this.draw();
@@ -19,8 +22,14 @@ Platform.prototype.isOutOfBounds = function(){
 	return this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height;
 };	
 Platform.prototype.draw = function(){
-	ctx.fillStyle = "red";
-	ctx.fillRect(this.x, this.y, this.width, this.height);
+	if(this.doColor){
+		ctx.fillStyle = this.color;
+		ctx.fillRect(this.x, this.y, this.width, this.height);
+	}
+	if(this.doLine){
+		ctx.lineStyle = "black";
+		ctx.strokeRect(this.x, this.y, this.width, this.height);
+	}
 };
 Platform.prototype.randomWidth = function(){
 	this.width = Math.random()*70 + 30;
@@ -128,7 +137,6 @@ Player.prototype.reset = function(){
 	if(score > highscore){
 		highscore = score
 		askUserName();
-		//prompt("Submite new High-Score?");
 	}
 
 	shiftColor();
@@ -137,6 +145,7 @@ Player.prototype.reset = function(){
 	this.y = this.spawnY;
 	this.velX = 0;
 	this.velY = 0;
+	spawnPlayerPlatform(this);
 }
 Player.prototype.draw = function(){
 	ctx.fillStyle = "#00654f";
@@ -144,6 +153,33 @@ Player.prototype.draw = function(){
 
 	ctx.lineStyle = "black";
 	ctx.strokeRect(this.x, this.y, this.size, this.size);
+};
+
+var platform_timeout;
+var playerPlatform;
+function spawnPlayerPlatform(player){
+	platform_timeout = 5000;
+	playerPlatform = new Platform(player.x - 20, player.y + player.size);
+	playerPlatform.width = 40 + player.size;
+	playerPlatform.speed = 0;
+	playerPlatform.color = "lightBlue";
+	playerPlatform.doLine = true;
+
+	platforms.splice(0, 0, playerPlatform);
+	playerPlatform.doColor = !playerPlatform.doColor;
+	updatePlayerPlatform();
+};
+
+function updatePlayerPlatform(){
+	if(platform_timeout <= 1){
+		platforms.splice(0, 1);
+		playerPlatform = undefined;
+		return;
+	}
+
+	platform_timeout /= 2;
+	playerPlatform.doColor = !playerPlatform.doColor;
+	setTimeout(updatePlayerPlatform, platform_timeout);
 };
 
 var clearCanvas = function(){
@@ -378,10 +414,11 @@ function gameloop(){
 };
 
 var startGame = function(){
+	spawnPlayerPlatform(player);
 	loop = setInterval(gameloop, 1000 / 33);
 }
 
-function start(){
+function waitForSpaceScreen(){
 	clearCanvas();
 	var start_text = "Press SPACEBAR to begin.";
 	var start_text_width = 145.1484375;
@@ -391,7 +428,7 @@ function start(){
 
 	ctx.fillText(start_text, (canvas.width/2) - (start_text_width), 200);
 
-	loop = setTimeout(start, 50);
+	loop = setTimeout(waitForSpaceScreen, 50);
 	if(keys[space]){
 		clearTimeout(loop);
 		startGame();
@@ -404,7 +441,7 @@ var init = function(){
 		platforms.push(new Platform(Math.random() * canvas.width, Math.random() * canvas.height));
 	player = new Player(200, 200);
 	bindInput();
-	start();
+	waitForSpaceScreen();
 };
 
 var platforms = [];
