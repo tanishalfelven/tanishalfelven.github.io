@@ -423,7 +423,7 @@ var startGame = function(){
 
 function waitForSpaceScreen(){
 	clearCanvas();
-	var start_text = "Press SPACEBAR to begin.";
+	var start_text = "Press 'ENTER' to begin.";
 	var start_text_width = 145.1484375;
 
 	ctx.font = "22px Consolas";
@@ -432,7 +432,7 @@ function waitForSpaceScreen(){
 	ctx.fillText(start_text, (canvas.width/2) - (start_text_width), 200);
 
 	loop = setTimeout(waitForSpaceScreen, 50);
-	if(keys[space]){
+	if(keys[enter]){
 		clearTimeout(loop);
 		startGame();
 	}
