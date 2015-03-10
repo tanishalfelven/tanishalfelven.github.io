@@ -158,6 +158,9 @@ Player.prototype.draw = function(){
 var platform_timeout;
 var playerPlatform;
 function spawnPlayerPlatform(player){
+	if(platforms.indexOf(playerPlatform) != -1){
+		return;
+	}
 	platform_timeout = 5000;
 	playerPlatform = new Platform(player.x - 20, player.y + player.size);
 	playerPlatform.width = 40 + player.size;
@@ -437,8 +440,10 @@ function waitForSpaceScreen(){
 
 var init = function(){
 	updateScores()
-	for(var i = 0; i < 15; i++)
-		platforms.push(new Platform(Math.random() * canvas.width, Math.random() * canvas.height));
+	var numPlatforms = 12;
+	var space = 400/numPlatforms;
+	for(var i = 0; i < numPlatforms; i++)
+		platforms.push(new Platform(Math.random() * canvas.width, Math.random() * space + space*i));
 	player = new Player(200, 200);
 	bindInput();
 	waitForSpaceScreen();
