@@ -158,10 +158,10 @@ Player.prototype.draw = function(){
 var platform_timeout;
 var playerPlatform;
 function spawnPlayerPlatform(player){
+	platform_timeout = 5000;
 	if(platforms.indexOf(playerPlatform) != -1){
 		return;
 	}
-	platform_timeout = 5000;
 	playerPlatform = new Platform(player.x - 20, player.y + player.size);
 	playerPlatform.width = 40 + player.size;
 	playerPlatform.speed = 0;
