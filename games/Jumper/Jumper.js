@@ -424,7 +424,7 @@ var startGame = function(){
 function waitForSpaceScreen(){
 	clearCanvas();
 	var start_text = "Press 'ENTER' to begin.";
-	var start_text_width = 145.1484375;
+	var start_text_width = 278.201171875/2;
 
 	ctx.font = "22px Consolas";
 	ctx.fillStyle = "white";
