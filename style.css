@@ -42,7 +42,8 @@ p {
 	text-indent: 3%;
 	line-height: 1.5;
 	margin: 3% auto 5% auto;
-	width: 600px;
+	width: 40%;
+	min-width: 20em;
 }
 
 .entry {
