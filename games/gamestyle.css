@@ -1,7 +1,10 @@
 .game {
+	background-color: white;
 	border: black solid;
-	height: 300px;
-	margin-bottom: 20px;
+	height: auto;
+	min-height: 7.5em;
+	margin-bottom: 1em;
+	font-size: 1em;
 
 	-o-transition:.5s;
 	-ms-transition:.5s;
@@ -10,23 +13,30 @@
 	transition:.5s;
 }
 
+.platform {
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 1em;
+	background-color: lightGray;
+}
+
 a {
 	text-decoration: none;
 	color: black;
 }
 
 .game > p {
-	margin: 0 5px 0 5px;
+	margin: 0 2% 0 2%;
 }
 
 .game:hover {
-	background-color: lightgray;
+	background-color: lightGray;
 }
 
 .game > img {
-	border: black solid;
 	float: right;
-	width: 250px;
-	height: 250px;
-	margin-right: 5px;
+	width: 6.5em;
+	height: 6.5em;
+	margin-right: .5em;
+	margin-top: -1.125em;
 }
