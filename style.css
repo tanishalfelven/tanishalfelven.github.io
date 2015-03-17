@@ -38,6 +38,12 @@ p {
 	float: right;
 }
 
+.footnote {
+	width: 90%;
+	color: gray;
+	font-size: .6em;
+}
+
 #text {
 	text-indent: 3%;
 	line-height: 1.5;
@@ -46,8 +52,14 @@ p {
 	min-width: 20em;
 }
 
+#blog {
+	margin: 3% auto 5% auto;
+	width: 40%;
+	min-width: 20em;
+}
+
 .blog-entry {
-	width: 100%;
+	width: 90%;
 	height: 1.5em;
 	color: gray;
 	margin: auto;
@@ -73,7 +85,7 @@ p {
 
 .date {
 	float: right;
-	text-align: left;
+	text-align: right;
 }
 
 .entry {
