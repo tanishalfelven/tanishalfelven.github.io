@@ -39,7 +39,8 @@ p {
 	margin-bottom: 1em;
 }
 
-ul {
+ul, ol {
+	padding-left: 1rem;
 	text-indent: 0;
 }
 
@@ -81,10 +82,11 @@ a#no-underline:hover {
 	font-weight: normal;
 	width: 90%;
 	height: 1.5em;
-	color: gray;
 	margin: auto;
 	padding: 0 1rem 0 1rem;
 	white-space: nowrap;
+	background-color: lightGray;
+	color: black;
 
 	-o-transition:.5s;
 	-ms-transition:.5s;
@@ -94,8 +96,8 @@ a#no-underline:hover {
 }
 
 .blog-entry:hover {
-	background-color: lightGray;
-	color: black;
+	background-color: white;
+	color: gray;
 }
 
 .blog-title {
