@@ -41,7 +41,6 @@ p {
 
 ul, ol {
 	padding-left: 2rem;
-	text-indent: 0;
 }
 
 #game {
@@ -61,7 +60,6 @@ ul, ol {
 }
 
 #text {
-	text-indent: 3%;
 	line-height: 1.5;
 	margin: 3% auto 5% auto;
 	width: 40%;
