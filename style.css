@@ -25,8 +25,22 @@ footer {
 	bottom: 0;
 }
 
+a {
+	font-weight: bold;
+	color: blue;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 p {
 	margin-bottom: 1em;
+}
+
+ul {
+	text-indent: 0;
 }
 
 #game {
@@ -89,6 +103,8 @@ p {
 }
 
 .entry {
+	font-weight: normal;
+
 	position: relative;
 	float: left;
 
