@@ -44,6 +44,7 @@ ul {
 }
 
 #game {
+	text-decoration: none;
 	margin: 3% auto 2% auto;
 	text-align: center;
 }
@@ -72,7 +73,12 @@ ul {
 	min-width: 20em;
 }
 
+a#no-underline:hover {
+	text-decoration: none;
+}
+
 .blog-entry {
+	font-weight: normal;
 	width: 90%;
 	height: 1.5em;
 	color: gray;

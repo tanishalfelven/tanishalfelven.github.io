@@ -33,6 +33,10 @@ a {
 	background-color: lightGray;
 }
 
+a:hover {
+	text-decoration: none;
+}
+
 .game > img {
 	float: right;
 	width: 6.5em;
