@@ -1,0 +1,134 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+header {
+	background-color: black;
+	width: 100%;
+	height: 3rem;
+}
+
+canvas {
+	margin-bottom:0;
+	width: 400px;
+	height: 400px;
+	display:inline;
+}
+
+footer {
+	text-align: center;
+	color: gray;
+	margin-bottom: .25%;
+	font-size: .8em;
+	bottom: 0;
+}
+
+a {
+	font-weight: bold;
+	color: blue;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+ul {
+	text-indent: 0;
+}
+
+#game {
+	text-decoration: none;
+	margin: 3% auto 2% auto;
+	text-align: center;
+}
+
+#about {
+	float: right;
+}
+
+.footnote {
+	width: 90%;
+	color: gray;
+	font-size: .6em;
+}
+
+#text {
+	text-indent: 3%;
+	line-height: 1.5;
+	margin: 3% auto 5% auto;
+	width: 40%;
+	min-width: 20em;
+}
+
+#blog {
+	margin: 3% auto 5% auto;
+	width: 40%;
+	min-width: 20em;
+}
+
+a#no-underline:hover {
+	text-decoration: none;
+}
+
+.blog-entry {
+	font-weight: normal;
+	width: 90%;
+	height: 1.5em;
+	color: gray;
+	margin: auto;
+	padding: 0 1rem 0 1rem;
+	white-space: nowrap;
+
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+
+.blog-entry:hover {
+	background-color: lightGray;
+	color: black;
+}
+
+.blog-title {
+	float: left;
+	text-align: left;
+}
+
+.date {
+	float: right;
+	text-align: right;
+}
+
+.entry {
+	font-weight: normal;
+
+	position: relative;
+	float: left;
+
+	height: 3rem;
+	line-height: 3rem;
+	text-align: center;
+	padding: 0 2% 0 2%;
+
+	color: gray;  
+
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+
+.entry:hover {
+	background-color: white;
+	color: black;
+}
