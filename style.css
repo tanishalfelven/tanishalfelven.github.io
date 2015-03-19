@@ -62,8 +62,10 @@ ul, ol {
 #text {
 	line-height: 1.5;
 	margin: 3% auto 5% auto;
+	padding-left: .5rem;
+	padding-right: .5rem;
 	width: 40%;
-	min-width: 20em;
+	min-width: 19em;
 }
 
 #blog {
