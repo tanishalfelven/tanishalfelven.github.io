@@ -29,39 +29,39 @@
 			I would like to tell you about some of them.</p>
 			<h3 id="is-copypaste-a-friend-or-foe">Is Copy/Paste a friend or foe?</h3>
 			<p>So when you make a static website, you start with the <code>index.html</code>, so that's where I started. I quickly coded up something along these lines:</p>
-			<pre><code>&lt;!DOCTYPE html&gt;
-			&lt;html&gt;
-			    &lt;head&gt;
-			    &lt;/head&gt;
-			    &lt;body&gt;
-			        &lt;h1&gt;Welcome&lt;/h1&gt;
-			        &lt;p&gt;Lorem Ipsum&lt;/p&gt;
-			    &lt;/body&gt;
-			&lt;/html&gt;
-			</code></pre>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Welcome&lt;/h1&gt;
+        &lt;p&gt;Lorem Ipsum&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 			
 			<p>Fine, easy. Then I created a <code>style.css</code>, and coded up some simple style sheet rules. Then I decided I wanted a Title Bar on my webpage, so I added this:</p>
-			<pre><code>...
-			&lt;body&gt;
-			&lt;div class=&quot;titlebar&quot;&gt;
-			    &lt;a href=&quot;link1&quot;&gt;&lt;div class=&quot;entry&quot;&gt;Obj 1&lt;/div&gt;&lt;/a&gt;
-			    &lt;a href=&quot;link2&quot;&gt;&lt;div class=&quot;entry&quot;&gt;Obj 2&lt;/div&gt;&lt;/a&gt;
-			    &lt;a href=&quot;link3&quot;&gt;&lt;div class=&quot;entry&quot;&gt;Obj 3&lt;/div&gt;&lt;/a&gt;
-			    &lt;a href=&quot;link4&quot;&gt;&lt;div class=&quot;entry&quot;&gt;Obj 4&lt;/div&gt;&lt;/a&gt;
-			&lt;/div&gt;
-			&lt;...&gt;
-			&lt;/body&gt;
-			...
-			</code></pre>
+<pre><code>...
+&lt;body&gt;
+&lt;div class=&quot;titlebar&quot;&gt;
+    &lt;a href=&quot;link1&quot;&gt;&lt;div class=&quot;entry&quot;&gt;Obj 1&lt;/div&gt;&lt;/a&gt;
+    &lt;a href=&quot;link2&quot;&gt;&lt;div class=&quot;entry&quot;&gt;Obj 2&lt;/div&gt;&lt;/a&gt;
+    &lt;a href=&quot;link3&quot;&gt;&lt;div class=&quot;entry&quot;&gt;Obj 3&lt;/div&gt;&lt;/a&gt;
+    &lt;a href=&quot;link4&quot;&gt;&lt;div class=&quot;entry&quot;&gt;Obj 4&lt;/div&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;...&gt;
+&lt;/body&gt;
+...
+</code></pre>
 			
 			<p>'That'll do for now', I thought, then I went to creating all of my base directories. I wanted a <em>blog</em>, <em>games</em>, <em>tutorials</em>, <em>home</em>, and <em>about</em> page. I added directories, then created all of the html files. I then <code>Copy/Pasted</code> all of the code from the original page into all of the new pages, and created new unique references to the other pages. It was tedious. That's when I realized I wanted... something. That something didn't really have a name<sup id="fnref:name"><a href="#fn:name" rel="footnote">1</a></sup> so I dubbed it a <strong>Templating Engine</strong>. I wanted to be able to say things like this:</p>
-			<pre><code>...
-			&lt;body&gt;
-			    {{TITLE_BAR}}
-			    ...
-			&lt;/body&gt;
-			...
-			</code></pre>
+<pre><code>...
+&lt;body&gt;
+    {{TITLE_BAR}}
+    ...
+&lt;/body&gt;
+...
+</code></pre>
 			
 			<p>And the engine would go and grab the references and such, and insert the title bar into the page. So I quickly opened up my <em>handy-dandy-sublime-editor</em>, and whipped up a Templating Engine. I named it <a href="https://github.com/tanishalfelven/stitcher">stitcher.py</a><sup id="fnref:stitcher"><a href="#fn:stitcher" rel="footnote">2</a></sup>, and BOOM - my website became way easier to edit<sup id="fnref:although"><a href="#fn:although" rel="footnote">3</a></sup>. So I got editting, and then I got to the point where I wanted a blog.</p>
 			<p>After hacking around on a custom blog 'engine' for a while, I realized it was much too tedious to manually add a new blog post. Writing a post I didn't mind<sup id="fnref:tools"><a href="#fn:tools" rel="footnote">4</a></sup>, but adding one into the main blog page, then manually adding the blogpost contents into a <em>dated</em> directory? Forget it. </p>
