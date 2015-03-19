@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Building this website</title>
+		<title>building-this-website</title>
 		<link href="style.css" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script>
@@ -57,13 +57,7 @@
 			<p>'That'll do for now', I thought, then I went to creating all of my base directories. I wanted a <em>blog</em>, <em>games</em>, <em>tutorials</em>, <em>home</em>, and <em>about</em> page. I added directories, then created all of the html files. I then <code>Copy/Pasted</code> all of the code from the original page into all of the new pages, and created new unique references to the other pages. It was tedious. That's when I realized I wanted... something. That something didn't really have a name<sup id="fnref:name"><a href="#fn:name" rel="footnote">1</a></sup> so I dubbed it a <strong>Templating Engine</strong>. I wanted to be able to say things like this:</p>
 			<pre><code>...
 			&lt;body&gt;
-			    <header>
-			<a href="http://tanishalfelven.github.io/"><div class="entry">Half-Elven</div></a>
-			<a href="http://tanishalfelven.github.io/games/"><div class="entry">games</div></a>
-			<a href="http://tanishalfelven.github.io/tutorials/"><div class="entry">tutorials</div></a>
-			<a href="http://tanishalfelven.github.io/blog/"><div class="entry">blog</div></a>
-			<a href="http://tanishalfelven.github.io/about/"><div class="entry" id="about">about</div></a>
-		</header>
+			    {{TITLE_BAR}}
 			    ...
 			&lt;/body&gt;
 			...
