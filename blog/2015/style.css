@@ -25,6 +25,19 @@ footer {
 	bottom: 0;
 }
 
+pre {
+	overflow: auto;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+
+code {
+	font-family: Courier, 'New Courier', monospace;
+	font-size: 12px;
+}
+
 a {
 	font-weight: bold;
 	color: blue;
@@ -78,7 +91,12 @@ a#no-underline:hover {
 	text-decoration: none;
 }
 
+code {
+	
+}
+
 .blog-entry {
+	line-height: 1.5em;
 	font-weight: normal;
 	width: 90%;
 	height: 1.5em;
